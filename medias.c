@@ -10,7 +10,7 @@ void medias(const int *A, int n, double *Ma, double *Mg, double *Mrq, double *Mh
     }
     *Ma = *Ma/n;
     *Mg = pow((*Mg), 1/n);
-    *Mrq = pow((*Mrq)/n, 2);
+    *Mrq = pow((*Mrq)/n, 1/2);
     *Mh = n/(*Mrq);
     *Dp = pow((n*(*Mrq) - (*Ma*(*Ma)/(n*(n-1)))), 1/2);
     
