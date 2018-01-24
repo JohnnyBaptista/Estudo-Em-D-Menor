@@ -1,7 +1,7 @@
 int verificaMagica(int *A, int n, int k){
 
     int i, j, somaLin, somaCol, somaDiagPrinc, somaDiagSec,  aux = (2*n) + 2;
-    int list[aux];
+    
     for(i = 0; i < n; i++){
         somaLin = 0;
         somaCol = 0;
