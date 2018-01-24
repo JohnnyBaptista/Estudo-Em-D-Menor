@@ -48,11 +48,11 @@ void Uniao(int Pa[], int Pb[], int M, int N, int Uniao[], int *Qu)
     }
     while(i<M) {
         *(Uniao+k) = *(Pa+i);
-        i++;
+        i++; k++;
     }
     while(j<N) {
         *(Uniao+k) = *(Pb+j);
-        j++;
+        j++; k++;
     }
     return;
 }
