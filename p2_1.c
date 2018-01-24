@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 #define MAX 1000
 
@@ -10,41 +9,45 @@ typedef enum boleano{
 }Boleano;
 
 
-short Verifica_Matriz_Permutacao(const int *A, int N)
+short Verifica_Matriz_Permutacao( int *A, int N)
 {
     int i, j, somLinhas[N], somCols[N];
     for(i=0; i<N; i++) {
         *(somLinhas+i) = 0;
         *(somCols+i) = 0;
     }
-    for(j=0; j<N; j++) {
-        for(i=0; i<N; i++) {
-            *(somLinhas+j) += *(A+N*j+i);
-            *(somCols+i) += *(A+N*j+i);
+    for(i=0; i<N; i++) {
+        for(j=0; j<N; j++) {
+            *(somLinhas+i) += *(A+N*i+j);
+            *(somCols+j) += *(A+N*i+j);
         }
-        if(*(somLinhas+j)!=1) return 0;
+        if(*(somLinhas+i)!=1) return 0;
     }
     for(j=0; j<N; j++) {
-        if(*(A+j) != 1) return 0;
+        if(*(somCols+j) != 1) return 0;
     }
     return 1;
-
 }
 
 
 int main(void)
 {
     int dim, i, j;
-    printf("Entre com o tamanho do seu vetor: ");
+    printf("Entre com a dimensão da sua matriz quadrada: ");
     scanf("%d", &dim);
     printf("Entre com os valores da matriz: \n");
     int mat[dim][dim];
-    for(j=0; j<dim; j++) 
-        for(i=0; i<dim; i++) {
-            printf("A[%d][%d] = ", i, j);
+    for(i=0; i<dim; i++) 
+        for(j=0; j<dim; j++) {
+            printf("A[%d][%d] = ", i+1, j+1);
             scanf("%d", &mat[i][j]);
         }
-    if(Verifica_Matriz_Permutacao(mat, dim)) printf("É de permutação!\n");
+    for(i=0; i<dim; i++) {
+        for(j=0; j<dim; j++)
+            printf("[%2d] ", mat[i][j]);
+        printf("\n");
+    }
+    if(Verifica_Matriz_Permutacao(*mat, dim)) printf("É de permutação!\n");
     else printf("Não é de permutação!\n");
 
     return 0;
