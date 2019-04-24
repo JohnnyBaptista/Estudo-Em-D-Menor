@@ -18,3 +18,9 @@ void medias(const int *A, int n, double *Ma, double *Mg, double *Mrq, double *Mh
     return;
 
 }
+
+int mediaA(int a, int b){
+    int c = a+b;
+    c /= 2;
+    return c;
+}
