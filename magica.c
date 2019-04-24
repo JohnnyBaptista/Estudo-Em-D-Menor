@@ -23,3 +23,8 @@ int verificaMagica(int *A, int n, int k){
         return 0;
 
 }
+
+void printar(){
+    printf("deu bom");
+    
+}
